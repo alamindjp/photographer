@@ -1,0 +1,23 @@
+.logo-img{
+    border-radius: 50%;
+}
+.link{
+    color: white;
+    text-decoration: none;
+    margin-left: 2px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: 500;
+    background-color: #bdbaba88;
+    transition: color ease-in-out 300ms;
+}
+.active-link{
+    color: white;
+    text-decoration: none;
+    margin-left: 2px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: 500;
+    background-color: darksalmon;
+    transition: color ease-in-out 300ms;
+}

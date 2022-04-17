@@ -6,11 +6,11 @@ import carosel03 from './images/carosel03.png'
 
 const Banner = () => {
     return (
-        <div className='container-md mb-5'>
+        <div className='container-md mb-5 mt-1'>
         <Carousel fade>
             <Carousel.Item>
                 <img
-                    className="d-block w-100"
+                    className="d-block w-100 rounded"
                     src={carosel01}
                     alt="First slide"
                 />
