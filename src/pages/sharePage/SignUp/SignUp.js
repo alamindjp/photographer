@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import SocialLogIn from '../Login/SocialLogIn/SocialLogIn';
 
 const SignUp = () => {
         const [
@@ -30,7 +31,7 @@ const SignUp = () => {
             navigate('/login')
         }
         return (
-            <div className='container w-25 border border-primary p-3'>
+            <div className='container w-50 border border-primary p-5'>
                 <h1 className="text-info m-2">Please SignUp</h1>
                 <form onSubmit={handelSignUp}>
                     <div>
@@ -51,6 +52,7 @@ const SignUp = () => {
                         <button className="btn btn-primary" type="submit">Sign Up</button>
                     </div>
                 </form>
+                <SocialLogIn></SocialLogIn>
             </div>
         );
     };
