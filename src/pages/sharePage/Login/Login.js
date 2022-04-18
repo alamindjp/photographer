@@ -1,24 +1,42 @@
 import React, { useRef } from 'react';
-import { Link,} from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, Navigate, useNavigate,} from 'react-router-dom';
+import auth from '../../../firebase.init';
 import SocialLogIn from './SocialLogIn/SocialLogIn';
 
 const Login = () => {
+    const navigate = useNavigate('')
     const emailRef = useRef('');
     const passwordRef = useRef('');
-    const handelSubmit = e => {
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
+      
+      if(user){
+          navigate('/home')
+      }
+      const handelLogIn = e => {
         e.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        console.log(email, password)
+        signInWithEmailAndPassword(email, password)
     }
+      const navigateSignUp = ()=>{
+          navigate('/signUp')
+        }
+        
     return (
         <div className='container w-25 border border-primary p-3 mt-5'>
             <h1 className='text-info text-center my-5 mt-2'>Please LogIn</h1>
-            <form onSubmit={handelSubmit}>
-                <input type="email" className="form-control my-3 p-3 fs-5 fst-italic" id="validationDefault02" ref={emailRef} placeholder='Enter Your Email' required />
-                <input type="password" className="form-control my-3 p-3 fs-5 fst-italic" id="validationDefault03" ref={passwordRef} placeholder='Enter Your Password' required />
-                <p>Create an account?<Link to="/signUp" className='text-primary text-decoration-none'> Please SignUp</Link></p>
-                <button className="btn btn-primary fst-italic" type="submit">Submit form</button>
+            <form onSubmit={handelLogIn}>
+                <input type="email" name="email" className="form-control my-3 p-3 fs-5 fst-italic" id="validationDefault02" ref={emailRef} placeholder='Enter Your Email' required />
+                <input type="password" name="password" className="form-control my-3 p-3 fs-5 fst-italic" id="validationDefault03" ref={passwordRef} placeholder='Enter Your Password' required />
+                <p>Create an account?<Link to="/signUp" className='text-primary text-decoration-none' onClick={navigateSignUp}> Please SignUp</Link></p>
+                <button className="btn btn-primary fst-italic"  type="submit">Log In</button>
             </form>
             <SocialLogIn></SocialLogIn>
         </div>
