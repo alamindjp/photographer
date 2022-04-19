@@ -1,7 +1,7 @@
 # [Live site link](https://photographer-7f389.web.app/)
 
 
-## `Features`
+## `Web Page Features`
 
 
 * Firebase Authenticatoin
@@ -18,4 +18,5 @@
 * React bootstrap framework
 * Bootstrap framework
 * Firebase Hooks
-* React librarie
+* React library
+* React Router
