@@ -9,7 +9,8 @@ const SignUp = () => {
     const [
         createUserWithEmailAndPassword,
         user,
-        loading
+        loading,
+        error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const nameRef = useRef();
@@ -25,14 +26,19 @@ const SignUp = () => {
         const password = passwordRef.current.value;
         createUserWithEmailAndPassword(email, password)
     }
-
+    if (error) {
+                alert(`${error.message}`)
+    }
+    if (loading) {
+        return <p>Loading...</p>;
+    }
     if (user) {
         navigate('/home')
     }
     const navigateLogin = () => {
         navigate('/login')
     }
-    if(loading){
+    if (loading) {
         return <Loading></Loading>
     }
     return (
