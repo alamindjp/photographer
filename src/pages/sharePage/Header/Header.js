@@ -12,7 +12,7 @@ const Header = () => {
     signOut(auth)
   }
   return (
-    <header className="container-fluid bg-primary py-3 mb-2 sticky-top">
+    <header className="container-fluid bg-primary py-3 mb-2 sticky-sm-top">
       <nav className="d-md-flex justify-content-around align-items-center">
         <div className="logo">
           <img className="logo-img" src={img} alt="" />
