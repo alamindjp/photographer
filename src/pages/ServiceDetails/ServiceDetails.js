@@ -5,7 +5,7 @@ const ServiceDetails = () => {
     const { serviceId } = useParams();
     return (
         <div>
-            <h2 className='text-info'>{serviceId} No Service Details</h2>
+            <h2 className='text-info'>Service Details {serviceId}</h2>
 
             <div className='text-center'>
                 <Link to='/chackout'>

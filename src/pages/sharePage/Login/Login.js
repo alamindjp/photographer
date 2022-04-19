@@ -14,11 +14,9 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
     const [
         signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
+        user
     ] = useSignInWithEmailAndPassword(auth);
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth );
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth );
 
     if (user) {
         navigate(from, { replace: true });
@@ -29,9 +27,7 @@ const Login = () => {
         const password = passwordRef.current.value;
         signInWithEmailAndPassword(email, password)
     }
-    const navigateSignUp = () => {
-        navigate('/signUp')
-    }
+
     const forgetPassword =async()=>{
         const email = emailRef.current.value;
         if(email){
@@ -50,7 +46,7 @@ const Login = () => {
                 <button className="btn btn-primary fst-italic w-25" type="submit">Log In</button>
             </form>
                <div className='d-flex justify-content-around align-items-center mt-4'>
-               <p className='my-3'>Create an account?<Link to="/signUp" className='text-primary text-decoration-none' onClick={navigateSignUp}> Please SignUp</Link></p>
+               <p className='my-3'>Create an account?<Link to="/signUp" className='text-primary text-decoration-none'> Please SignUp</Link></p>
                 <p className='m-0'><button className='text-primary btn btn-lin' onClick={forgetPassword}>Forget Password</button></p>
                </div>
             <SocialLogIn></SocialLogIn>

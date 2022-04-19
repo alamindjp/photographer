@@ -5,18 +5,21 @@ import auth from '../../../../firebase.init';
 
 const SocialLogIn = () => {
     const navigate = useNavigate();
-    const location = useLocation()
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
     const [signInWithFacebook, facebookUser, facebookLoading, facebookError] = useSignInWithFacebook(auth);
+    const location = useLocation()
     let from = location.state?.from?.pathname || "/";
     let errorElement;
     let lodingElement;
+
+    if (googleUser || githubUser || facebookUser) {
+        navigate(from, { replace: true });
+    }
     if (googleError || githubError || facebookError) {
-        errorElement =
-            <div>
-                <p className='text-danger'>Error: {googleError?.message} {githubError?.message}</p>
-            </div>
+        errorElement = <div>
+            <p className='text-danger'>Error: {googleError?.message} {githubError?.message}{facebookError?.message}</p>
+        </div>
 
     }
     if (googleLoading || githubLoading || facebookLoading) {
@@ -25,9 +28,6 @@ const SocialLogIn = () => {
                 <span className="visually-hidden">Loading...</span>
             </div>
         </div>
-    }
-    if (googleUser || githubUser || facebookUser) {
-        navigate(from, { replace: true });
     }
     return (
         <div>

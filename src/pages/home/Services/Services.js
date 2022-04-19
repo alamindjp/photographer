@@ -2,7 +2,7 @@ import useDatas from "../../../Hooks/useData";
 import Service from "../Service/Service";
 
 const Services = () => {
-  const [datas, setDatas] = useDatas([])
+  const [datas] = useDatas([])
   return (
     <div>
       <div className="container">
