@@ -4,9 +4,11 @@ import { useNavigate } from 'react-router-dom';
 const Service = ({ service }) => {
     const {id, name, image, price, discription } = service;
     const navigate = useNavigate()
+
     const navigateServiceDetails = id => {
         navigate(`/service/${id}`)
     }
+    
     return (
         <div className="col-12 col-md-6 col-lg-4 g-5">
             <div className="card h-100">

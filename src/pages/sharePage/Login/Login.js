@@ -34,8 +34,8 @@ const Login = () => {
     }
     const forgetPassword =async()=>{
         const email = emailRef.current.value;
-        await sendPasswordResetEmail(email);
-          if(email){
+        if(email){
+              await sendPasswordResetEmail(email);
             toast('Sent an Email For Reset Password');
           }
     }
@@ -46,11 +46,13 @@ const Login = () => {
             <form onSubmit={handelLogIn}>
                 <input type="email" name="email" className="form-control my-3 p-3 fs-5 fst-italic" id="validationDefault02" ref={emailRef} placeholder='Enter Your Email' required />
                 <input type="password" name="password" className="form-control my-3 p-3 fs-5 fst-italic" id="validationDefault03" ref={passwordRef} placeholder='Enter Your Password' required />
-                <p>Create an account?<Link to="/signUp" className='text-primary text-decoration-none' onClick={navigateSignUp}> Please SignUp</Link></p>
-                <p><button className='text-primary text-decoration-none' onClick={forgetPassword}>Forget Password</button></p>
                 
                 <button className="btn btn-primary fst-italic w-25" type="submit">Log In</button>
             </form>
+               <div className='d-flex justify-content-around align-items-center mt-4'>
+               <p className='my-3'>Create an account?<Link to="/signUp" className='text-primary text-decoration-none' onClick={navigateSignUp}> Please SignUp</Link></p>
+                <p className='m-0'><button className='text-primary btn btn-lin' onClick={forgetPassword}>Forget Password</button></p>
+               </div>
             <SocialLogIn></SocialLogIn>
             <ToastContainer />
         </div>
