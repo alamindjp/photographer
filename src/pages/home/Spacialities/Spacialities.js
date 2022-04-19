@@ -8,6 +8,7 @@ const Spacialities = () => {
         <div>
             <div style={{ height: '1px' }} className='bg-secondary mt-5'></div>
             <div className="container">
+            <h1 className='text-secondary mt-4'>My Spacialities</h1>
                 <div className="row">
                     <div className="col-12 col-md-6 col-lg-4 g-5">
                         <div className="card h-100">
