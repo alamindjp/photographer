@@ -29,9 +29,6 @@ const SignUp = () => {
     if (error) {
                 alert(`${error.message}`)
     }
-    if (loading) {
-        return <p>Loading...</p>;
-    }
     if (user) {
         navigate('/home')
     }
