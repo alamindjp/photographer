@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate, } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../firebase.init';
+import Loading from '../Loading/Loading';
 import SocialLogIn from './SocialLogIn/SocialLogIn';
 
 const Login = () => {
@@ -15,6 +16,7 @@ const Login = () => {
     const [
         signInWithEmailAndPassword,
         user,
+        loading,
         error
     ] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
@@ -27,6 +29,9 @@ const Login = () => {
         Email and password didn't match
         Please chack your email and password
         `)
+    }
+    if (loading) {
+        return <Loading></Loading>
     }
     const handelLogIn = e => {
         e.preventDefault();
