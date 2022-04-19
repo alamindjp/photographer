@@ -1,4 +1,3 @@
-import { queryAllByAttribute } from '@testing-library/react';
 import React, { useRef } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate, } from 'react-router-dom';
@@ -24,10 +23,6 @@ const Login = () => {
         navigate(from, { replace: true });
     }
     if (error) {
-        error = <div>
-        <p className='text-danger'>Email and password didn't match</p>
-        <p className='text-danger'>Please chack your email and password</p>
-    </div>
         alert(`
         Email and password didn't match
         Please chack your email and password
