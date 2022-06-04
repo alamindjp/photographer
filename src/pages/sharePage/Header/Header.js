@@ -16,7 +16,7 @@ const Header = () => {
       <nav className="d-md-flex justify-content-around align-items-center">
         <div className="logo">
           <img className="logo-img" src={img} alt="" />
-          <p className="p-0 m-0">Beauty Shooter hype</p>
+          <p className="p-0 m-0">Beauty Shooter phero</p>
         </div>
         <div className="d-block">
           <NavLink className={({ isActive }) => (isActive ? "active-link" : "link")} to="/">Home</NavLink>
